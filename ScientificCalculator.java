@@ -295,6 +295,20 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performNaturalLogarithm(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            double result = calculateNaturalLogarithm(num);
+            System.out.println("Result: ln(" + num + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+            scanner.nextLine();
+        }
+    }
 
 }
 
