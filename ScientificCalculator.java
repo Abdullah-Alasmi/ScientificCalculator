@@ -323,6 +323,17 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performRound(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            long result = roundNumber(num);
+            System.out.println("Result: round(" + num + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        }
+    }
 
 }
 
