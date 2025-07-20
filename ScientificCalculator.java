@@ -28,7 +28,7 @@ public class ScientificCalculator {
                     performSubtraction(scanner);
                     break;
                 case 3:
-                    //performMultiplication(scanner);
+                    performMultiplication(scanner);
                     break;
                 case 4:
                     //performDivision(scanner);
@@ -107,7 +107,9 @@ public class ScientificCalculator {
     public static double subtract(double num1, double num2) {
         return num1 - num2;
     }
-    //public static double multiply(){}3
+    public static double multiply(double num1, double num2) {
+        return num1 * num2;
+    }
     //public static double divide(){}4
     //public static double calculateSquareRoot(){}5
     //public static double calculatePower(){}6
@@ -144,6 +146,19 @@ public class ScientificCalculator {
             double num2 = scanner.nextDouble();
             double result = subtract(num1, num2);
             System.out.println("Result: " + num1 + " - " + num2 + " = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        }
+    }
+    private static void performMultiplication(Scanner scanner) {
+        try {
+            System.out.print("Enter first number: ");
+            double num1 = scanner.nextDouble();
+            System.out.print("Enter second number: ");
+            double num2 = scanner.nextDouble();
+            double result = multiply(num1, num2);
+            System.out.println("Result: " + num1 + " * " + num2 + " = " + result);
         } catch (InputMismatchException e) {
             System.out.println("Error: Please enter valid numbers.");
             scanner.nextLine();
