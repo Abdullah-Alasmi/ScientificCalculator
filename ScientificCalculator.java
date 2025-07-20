@@ -358,6 +358,33 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performMin(Scanner scanner) {
+        try {
+            System.out.print("Enter first number: ");
+            double num1 = scanner.nextDouble();
+            System.out.print("Enter second number: ");
+            double num2 = scanner.nextDouble();
+            double result = findMin(num1, num2);
+            System.out.println("Result: min(" + num1 + ", " + num2 + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        }
+    }
+
+    private static void performMax(Scanner scanner) {
+        try {
+            System.out.print("Enter first number: ");
+            double num1 = scanner.nextDouble();
+            System.out.print("Enter second number: ");
+            double num2 = scanner.nextDouble();
+            double result = findMax(num1, num2);
+            System.out.println("Result: max(" + num1 + ", " + num2 + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        }
+    }
 
 }
 
