@@ -69,6 +69,9 @@ public class ScientificCalculator {
                 case 16:
                     performMax(scanner);
                     break;
+                case 17:
+                    performAbsoluteValue(scanner);
+                    break;
                 case 0:
                     System.out.println("Exiting calculator. Goodbye!");
                     scanner.close();
@@ -99,6 +102,7 @@ public class ScientificCalculator {
         System.out.println("14. Floor");
         System.out.println("15. Min");
         System.out.println("16. Max");
+        System.out.println("17. Abs");
         System.out.println("0. Exit");
     }
     public static double add(double num1, double num2){
@@ -174,6 +178,9 @@ public class ScientificCalculator {
 
     public static double findMax(double num1, double num2) {
         return Math.max(num1, num2);
+    }
+    public static double calculateAbsoluteValue(double num) {
+        return Math.abs(num);
     }
 
     private static void performAddition(Scanner scanner) {
@@ -382,6 +389,17 @@ public class ScientificCalculator {
             System.out.println("Result: max(" + num1 + ", " + num2 + ") = " + result);
         } catch (InputMismatchException e) {
             System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        }
+    }
+    private static void performAbsoluteValue(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            double result = calculateAbsoluteValue(num);
+            System.out.println("Result: |" + num + "| = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
             scanner.nextLine();
         }
     }
