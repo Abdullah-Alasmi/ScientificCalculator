@@ -259,6 +259,17 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performSine(Scanner scanner) {
+        try {
+            System.out.print("Enter angle in degrees: ");
+            double degrees = scanner.nextDouble();
+            double result = calculateSine(degrees);
+            System.out.println("Result: sin(" + degrees + "°) = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        }
+    }
 
 }
 
