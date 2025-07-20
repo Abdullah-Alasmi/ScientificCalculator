@@ -335,6 +335,30 @@ public class ScientificCalculator {
         }
     }
 
+    private static void performCeiling(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            double result = ceilingNumber(num);
+            System.out.println("Result: ceil(" + num + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        }
+    }
+
+    private static void performFloor(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            double result = floorNumber(num);
+            System.out.println("Result: floor(" + num + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        }
+    }
+
 }
 
 
