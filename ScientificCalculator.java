@@ -34,7 +34,7 @@ public class ScientificCalculator {
                     performDivision(scanner);
                     break;
                 case 5:
-                    //performSquareRoot(scanner);
+                    performSquareRoot(scanner);
                     break;
                 case 6:
                     //performPower(scanner);
@@ -116,7 +116,12 @@ public class ScientificCalculator {
         }
         return num1 / num2;
     }
-    //public static double calculateSquareRoot(){}5
+    public static double calculateSquareRoot(double num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Square root of negative number is not allowed.");
+        }
+        return Math.sqrt(num);
+    }
     //public static double calculatePower(){}6
     //public static double calculateSine(){}7
     //public static double calculateCosine(){}8
@@ -181,6 +186,20 @@ public class ScientificCalculator {
             System.out.println("Error: Please enter valid numbers.");
             scanner.nextLine();
         } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+            scanner.nextLine();
+        }
+    }
+    private static void performSquareRoot(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            double result = calculateSquareRoot(num);
+            System.out.println("Result: sqrt(" + num + ") = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
             scanner.nextLine();
         }
