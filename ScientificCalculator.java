@@ -37,37 +37,37 @@ public class ScientificCalculator {
                     performSquareRoot(scanner);
                     break;
                 case 6:
-                    //performPower(scanner);
+                    performPower(scanner);
                     break;
                 case 7:
-                    //performSine(scanner);
+                    performSine(scanner);
                     break;
                 case 8:
-                    //performCosine(scanner);
+                    performCosine(scanner);
                     break;
                 case 9:
-                    //performTangent(scanner);
+                    performTangent(scanner);
                     break;
                 case 10:
-                    //performNaturalLogarithm(scanner);
+                    performNaturalLogarithm(scanner);
                     break;
                 case 11:
-                    //performLogarithmBase10(scanner);
+                    performLogarithmBase10(scanner);
                     break;
                 case 12:
-                   //performRound(scanner);
+                   performRound(scanner);
                     break;
                 case 13:
-                    //performCeiling(scanner);
+                    performCeiling(scanner);
                     break;
                 case 14:
-                    //performFloor(scanner);
+                    performFloor(scanner);
                     break;
                 case 15:
-                    //performMin(scanner);
+                    performMin(scanner);
                     break;
                 case 16:
-                    //performMax(scanner);
+                    performMax(scanner);
                     break;
                 case 0:
                     System.out.println("Exiting calculator. Goodbye!");
@@ -122,17 +122,59 @@ public class ScientificCalculator {
         }
         return Math.sqrt(num);
     }
-    //public static double calculatePower(){}6
-    //public static double calculateSine(){}7
-    //public static double calculateCosine(){}8
-    //public static double calculateTangent(){}9
-    //public static double calculateNaturalLogarithm(){}10
-    //public static double calculateLogarithmBase10(){}11
-    //public static long roundNumber(){}12
-    //public static double ceilingNumber(){}13
-    //public static double floorNumber(){}14
-    //public static double findMin(){}15
-    //public static double findMax(){}16
+    public static double calculatePower(double base, double exponent) {
+        return Math.pow(base, exponent);
+    }
+
+    public static double calculateSine(double degrees) {
+        return Math.sin(Math.toRadians(degrees));
+    }
+
+    public static double calculateCosine(double degrees) {
+        return Math.cos(Math.toRadians(degrees));
+    }
+
+    public static double calculateTangent(double degrees) {
+        double radians = Math.toRadians(degrees);
+        if (Math.abs(Math.cos(radians)) < 1e-10) {
+            throw new IllegalArgumentException("Tangent is undefined at " + degrees + " degrees.");
+        }
+        return Math.tan(radians);
+    }
+
+    public static double calculateNaturalLogarithm(double num) {
+        if (num <= 0) {
+            throw new IllegalArgumentException("Logarithm of non-positive number is not allowed.");
+        }
+        return Math.log(num);
+    }
+
+    public static double calculateLogarithmBase10(double num) {
+        if (num <= 0) {
+            throw new IllegalArgumentException("Logarithm base 10 of non-positive number is not allowed.");
+        }
+        return Math.log10(num);
+    }
+
+    public static long roundNumber(double num) {
+        return Math.round(num);
+    }
+
+    public static double ceilingNumber(double num) {
+        return Math.ceil(num);
+    }
+
+    public static double floorNumber(double num) {
+        return Math.floor(num);
+    }
+
+    public static double findMin(double num1, double num2) {
+        return Math.min(num1, num2);
+    }
+
+    public static double findMax(double num1, double num2) {
+        return Math.max(num1, num2);
+    }
 
     private static void performAddition(Scanner scanner) {
         try {
@@ -201,6 +243,19 @@ public class ScientificCalculator {
             scanner.nextLine();
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
+            scanner.nextLine();
+        }
+    }
+    private static void performPower(Scanner scanner) {
+        try {
+            System.out.print("Enter base: ");
+            double base = scanner.nextDouble();
+            System.out.print("Enter exponent: ");
+            double exponent = scanner.nextDouble();
+            double result = calculatePower(base, exponent);
+            System.out.println("Result: " + base + "^" + exponent + " = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter valid numbers.");
             scanner.nextLine();
         }
     }
