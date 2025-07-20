@@ -22,23 +22,60 @@ public class ScientificCalculator {
 
             switch (choice) {
                 case 1:
+                    performAddition(scanner);
+                    break;
                 case 2:
+                    //performSubtraction(scanner);
+                    break;
                 case 3:
+                    //performMultiplication(scanner);
+                    break;
                 case 4:
+                    //performDivision(scanner);
+                    break;
                 case 5:
+                    //performSquareRoot(scanner);
+                    break;
                 case 6:
+                    //performPower(scanner);
+                    break;
                 case 7:
+                    //performSine(scanner);
+                    break;
                 case 8:
+                    //performCosine(scanner);
+                    break;
                 case 9:
+                    //performTangent(scanner);
+                    break;
                 case 10:
+                    //performNaturalLogarithm(scanner);
+                    break;
                 case 11:
+                    //performLogarithmBase10(scanner);
+                    break;
                 case 12:
+                   //performRound(scanner);
+                    break;
                 case 13:
+                    //performCeiling(scanner);
+                    break;
                 case 14:
+                    //performFloor(scanner);
+                    break;
                 case 15:
+                    //performMin(scanner);
+                    break;
                 case 16:
+                    //performMax(scanner);
+                    break;
                 case 0:
+                    System.out.println("Exiting calculator. Goodbye!");
+                    scanner.close();
+                    return;
                 default:
+                    System.out.println("Error: Invalid choice. Please select a number between 0 and 16.");
+                    break;
             }
         }
     }
@@ -64,7 +101,9 @@ public class ScientificCalculator {
         System.out.println("16. Max");
         System.out.println("0. Exit");
     }
-    //public static double add(){}1
+    public static double add(double num1, double num2){
+        return num1 + num2;
+    }
     //public static double subtract(){}2
     //public static double multiply(){}3
     //public static double divide(){}4
@@ -81,13 +120,24 @@ public class ScientificCalculator {
     //public static double findMin(){}15
     //public static double findMax(){}16
 
-    //private static void performAddition(Scanner scanner) {
+    private static void performAddition(Scanner scanner) {
+        try {
+            System.out.println("Enter first number: ");
+            double num1 = scanner.nextDouble();
+            System.out.println("Enter second number: ");
+            double num2 = scanner.nextDouble();
+            double result = add(num1,num2);
+            System.out.println("Result: " + num1 + " + " + num2 + " = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        }
         // Prompt for first number
         // Prompt for second number
         // Call add() method
         // Print result
         // Implement try-catch for InputMismatchException here!
-    //}
+    }
 
     //private static void performSubtraction(Scanner scanner)
 
