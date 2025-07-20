@@ -281,6 +281,20 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performTangent(Scanner scanner) {
+        try {
+            System.out.print("Enter angle in degrees: ");
+            double degrees = scanner.nextDouble();
+            double result = calculateTangent(degrees);
+            System.out.println("Result: tan(" + degrees + "°) = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+            scanner.nextLine();
+        }
+    }
 
 }
 
