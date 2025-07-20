@@ -31,7 +31,7 @@ public class ScientificCalculator {
                     performMultiplication(scanner);
                     break;
                 case 4:
-                    //performDivision(scanner);
+                    performDivision(scanner);
                     break;
                 case 5:
                     //performSquareRoot(scanner);
@@ -110,7 +110,12 @@ public class ScientificCalculator {
     public static double multiply(double num1, double num2) {
         return num1 * num2;
     }
-    //public static double divide(){}4
+    public static double divide(double num1, double num2) {
+        if (num2 == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
+        return num1 / num2;
+    }
     //public static double calculateSquareRoot(){}5
     //public static double calculatePower(){}6
     //public static double calculateSine(){}7
@@ -161,6 +166,22 @@ public class ScientificCalculator {
             System.out.println("Result: " + num1 + " * " + num2 + " = " + result);
         } catch (InputMismatchException e) {
             System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        }
+    }
+    private static void performDivision(Scanner scanner) {
+        try {
+            System.out.print("Enter first number: ");
+            double num1 = scanner.nextDouble();
+            System.out.print("Enter second number: ");
+            double num2 = scanner.nextDouble();
+            double result = divide(num1, num2);
+            System.out.println("Result: " + num1 + " / " + num2 + " = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter valid numbers.");
+            scanner.nextLine();
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
             scanner.nextLine();
         }
     }
