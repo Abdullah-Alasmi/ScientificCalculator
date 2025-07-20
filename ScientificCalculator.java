@@ -270,6 +270,17 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performCosine(Scanner scanner) {
+        try {
+            System.out.print("Enter angle in degrees: ");
+            double degrees = scanner.nextDouble();
+            double result = calculateCosine(degrees);
+            System.out.println("Result: cos(" + degrees + "°) = " + result);
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Please enter a valid number.");
+            scanner.nextLine();
+        }
+    }
 
 }
 
